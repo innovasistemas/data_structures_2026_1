@@ -44,6 +44,7 @@ public class Main
             System.out.println("3. Longitud texto");
             System.out.println("4. Texto mayúscula");
             System.out.println("5. Texto minúscula");
+            System.out.println("6. Palíndromo");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -65,6 +66,9 @@ public class Main
                     break;
                 case "5":
                     System.out.println("Texto en minúscula: " + str.lowerString());
+                    break;
+                case "6":
+                    str.palindrome();
                     break;
                 default:
                     System.out.println("Hasta pronto");
