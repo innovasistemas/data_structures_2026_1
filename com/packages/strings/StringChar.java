@@ -80,5 +80,16 @@ public class StringChar
         }
         return sw;
     }
+
+    public int countChar(char charUser)
+    {
+        int c = 0;
+        for (int i = 0; i < this.text.length(); i++) {
+            if (this.text.charAt(i) == charUser) {
+                c++;
+            }
+        }
+        return c;
+    }
     
 }

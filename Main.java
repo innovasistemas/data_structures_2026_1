@@ -45,6 +45,8 @@ public class Main
             System.out.println("4. Texto mayúscula");
             System.out.println("5. Texto minúscula");
             System.out.println("6. Palíndromo");
+            System.out.println("7. Ejemplos cadenas");
+            System.out.println("8. Contar carácter del usuario");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -69,6 +71,16 @@ public class Main
                     break;
                 case "6":
                     str.palindrome();
+                    break;
+                case "7":
+                    ExampleStrings es = new ExampleStrings();
+                    break;
+                case "8":
+                    char charUser;
+                    System.out.println("Carácter a contar: ");
+                    charUser = input.next().charAt(0);
+                    input.nextLine();
+                    System.out.println("El carácter " + charUser + " se encuentra " + str.countChar(charUser));
                     break;
                 default:
                     System.out.println("Hasta pronto");
