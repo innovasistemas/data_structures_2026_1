@@ -1,5 +1,7 @@
 import java.util.Scanner;
+
 import com.packages.strings.*;
+import com.packages.vectors.*;
 
 public class Main 
 {
@@ -23,7 +25,7 @@ public class Main
                     menuString();
                     break;
                 case "2":
-                    // System.out.println("Hasta pronto");
+                    menuVector();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -83,7 +85,72 @@ public class Main
                     System.out.println("El carácter " + charUser + " se encuentra " + str.countChar(charUser));
                     break;
                 default:
-                    System.out.println("Hasta pronto");
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!resp.equals("0"));
+    }
+
+
+    public static void menuVector()
+    {
+        String resp;
+        int datum, pos;
+        Vector v = new Vector();
+        
+        do {
+            System.out.println("\n-------Menú Vectores------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Agregar dato");
+            System.out.println("2. Tamaño");
+            System.out.println("3. Mostrar");
+            System.out.println("4. Buscar (secuencial)");
+            // System.out.println("4. Texto mayúscula");
+            // System.out.println("5. Texto minúscula");
+            // System.out.println("6. Palíndromo");
+            // System.out.println("7. Ejemplos cadenas");
+            // System.out.println("8. Contar carácter del usuario");
+            System.out.print("Ingrese su opción: ");
+            resp = input.nextLine();
+
+            switch (resp) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Dato vector: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    if (v.getN() < v.getT()) {
+                        v.addVector(datum);
+                    } else {
+                        System.out.println("Vector lleno");
+                    }
+                    // v.addVector(input.nextInt());
+                    break;
+                case "2":
+                    System.out.println("Tamaño vector: " + v.getN());
+                    break;
+                case "3":
+                    v.showVector();
+                    break;
+                case "4":
+                    if (v.getN() > 0) {
+                        System.out.print("Dato a buscar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        pos = v.searchSecuencial(datum);
+                        if (pos == -1) {
+                            System.out.println(datum + " no se encuentra en el vector");
+                        } else {
+                            System.out.println(datum + " encontrado en posición " + pos);
+
+                        }
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
                     break;
             }
         } while (!resp.equals("0"));
