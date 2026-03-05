@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
+import com.packages.arrays.*;
 import com.packages.strings.*;
-import com.packages.vectors.*;
 
 public class Main 
 {
@@ -105,11 +105,10 @@ public class Main
             System.out.println("2. Tamaño");
             System.out.println("3. Mostrar");
             System.out.println("4. Buscar (secuencial)");
-            // System.out.println("4. Texto mayúscula");
-            // System.out.println("5. Texto minúscula");
-            // System.out.println("6. Palíndromo");
-            // System.out.println("7. Ejemplos cadenas");
-            // System.out.println("8. Contar carácter del usuario");
+            System.out.println("5. Modificar");
+            System.out.println("6. Eliminar");
+            System.out.println("7. Insertar");
+            System.out.println("8. Ordenar (burbuja)");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -143,8 +142,69 @@ public class Main
                             System.out.println(datum + " no se encuentra en el vector");
                         } else {
                             System.out.println(datum + " encontrado en posición " + pos);
-
                         }
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "5":
+                    if (v.getN() > 0) {
+                        System.out.print("Dato a modificar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        pos = v.searchSecuencial(datum);
+                        if (pos == -1) {
+                            System.out.println(datum + " no se encuentra en el vector");
+                        } else {
+                            System.out.print("Nuevo dato: ");
+                            datum = input.nextInt();
+                            input.nextLine();
+                            v.updateVector(datum, pos);
+                            System.out.println("Dato actualizado correctamente");
+                        }
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "6":
+                    if (v.getN() > 0) {
+                        System.out.print("Dato a eliminar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        pos = v.searchSecuencial(datum);
+                        if (pos == -1) {
+                            System.out.println(datum + " no se encuentra en el vector");
+                        } else {
+                            v.deleteVector(pos);
+                            System.out.println("Dato eliminado correctamente");
+                        }
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "7":
+                    if (v.getN() < v.getT()) {
+                        System.out.print("Dato referencia: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        pos = v.searchSecuencial(datum);
+                        if (pos == -1) {
+                            System.out.println(datum + " no se encuentra en el vector");
+                        } else {
+                            System.out.print("Dato a insertar: ");
+                            datum = input.nextInt();
+                            input.nextLine();
+                            v.insertVector(pos, datum);
+                            System.out.println("Dato insertado correctamente");
+                        }
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "8":
+                    if (v.getN() > 0) {
+                        v.sortBubble();
+                        System.out.println("Vector ordenado correctamente");
                     } else {
                         System.out.println("Vector vacío");
                     }

@@ -1,4 +1,4 @@
-package com.packages.vectors;
+package com.packages.arrays;
 
 public class Vector 
 {
@@ -63,6 +63,43 @@ public class Vector
             }
         }
         return pos;
+    }
+
+    public void updateVector(int datum, int pos)
+    {
+        vec[pos] = datum;
+    }
+
+    public void deleteVector(int pos)
+    {
+        for (int i = pos; i < n - 1; i++) {
+            vec[i] = vec[i + 1];
+        }
+        n--;
+    }
+
+    public void insertVector(int pos, int datum)
+    {
+        for (int i = n; i > pos; i--) {
+            vec[i] = vec[i - 1];
+        }
+        vec[pos] = datum;
+        n++;
+    }
+
+
+    public void sortBubble()
+    {
+        int aux;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (vec[i] > vec[j]) {
+                    aux = vec[i];
+                    vec[i] = vec[j];
+                    vec[j] = aux;
+                }
+            }
+        }
     }
        
     
