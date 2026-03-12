@@ -101,6 +101,89 @@ public class Vector
             }
         }
     }
+
+    public int sumVector()
+    {
+        int s = 0;
+        for (int i = 0; i < n; i++) {
+            s = s + vec[i];
+        }
+        return s;
+    }
+
+    public int productVector()
+    {
+        int p = 1;
+        for (int i = 0; i < n; i++) {
+            p = p * vec[i];
+        }
+        return p;
+    }
+
+    public double avgVector()
+    {
+        return sumVector() / n;
+    }
+
+    public int maxVector()
+    {
+        int i, m;
+        m = vec[0]; // Supuesto: el mayor elemento está en la primera posición
+        for (i = 1; i < n; i++) {
+            if (vec[i] > m) {
+                m = vec[i];
+            }
+        }
+        return m;
+    }
+
+    public int minVector()
+    {
+        int i, m;
+        m = vec[0]; // Supuesto: el menor elemento está en la primera posición
+        for (i = 1; i < n; i++) {
+            if (vec[i] < m) {
+                m = vec[i];
+            }
+        }
+        return m;
+    }
+
+    public int totalOddPositionEven()
+    {
+        int i, c;
+        c = 0;
+        for (i = 0; i < n; i += 2) {
+            if (vec[i] % 2 == 1) {
+                c++;
+            }
+        }
+        return c;
+    }
+
+    public double variance()
+    {
+        double s = 0;
+        for (int i = 0; i < n; i++) {
+            s = s + Math.pow(vec[i] - avgVector(), 2);
+        }
+        return s / (n - 1);
+    }
+
+    public double desviation()
+    {
+        return Math.sqrt(variance());
+    }
+
+    public void interchange()
+    {
+        int aux;
+        for (int i = 0; i < n / 2; i++) {
+            aux = vec[i];
+            vec[i] = vec[n - i - 1];
+            vec[n - i - 1] = aux;
+        }
+    }
        
     
 }

@@ -109,6 +109,13 @@ public class Main
             System.out.println("6. Eliminar");
             System.out.println("7. Insertar");
             System.out.println("8. Ordenar (burbuja)");
+            System.out.println("9. Suma datos");
+            System.out.println("10. Promedio datos");
+            System.out.println("11. Mayor dato");
+            System.out.println("12. Menor dato");
+            System.out.println("13. Varianza");
+            System.out.println("14. Desviación");
+            System.out.println("15. Intercambio");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -207,6 +214,55 @@ public class Main
                         System.out.println("Vector ordenado correctamente");
                     } else {
                         System.out.println("Vector vacío");
+                    }
+                case "9":
+                    if (v.getN() > 0) {
+                        System.out.println("Suma datos vector: " + v.sumVector());
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "10":
+                    if (v.getN() > 0) {
+                        System.out.println("Promedio datos vector: " + v.avgVector());
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "11":
+                    if (v.getN() > 0) {
+                        System.out.println("Mayor dato vector: " + v.maxVector());
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "12":
+                    if (v.getN() > 0) {
+                        System.out.println("Menor dato vector: " + v.minVector());
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "13":
+                    if (v.getN() > 1) {
+                        System.out.println("Varianza: " + v.variance());
+                    } else {
+                        System.out.println("No hay datos suficientes");
+                    }
+                    break;
+                case "14":
+                    if (v.getN() > 1) {
+                        System.out.println("Desviación estándar: " + v.desviation());
+                    } else {
+                        System.out.println("No hay datos suficientes");
+                    }
+                    break;
+                case "15":
+                    if (v.getN() > 0) {
+                        v.interchange();
+                        System.out.println("Se intercambiaron los datos del vector");
+                    } else {
+                        System.out.println("No hay datos");
                     }
                     break;
                 default:
