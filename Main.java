@@ -14,6 +14,7 @@ public class Main
             System.out.println("0. Salir");
             System.out.println("1. Cadenas de caracteres");
             System.out.println("2. Vectores");
+            System.out.println("3. Matrices");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -26,6 +27,9 @@ public class Main
                     break;
                 case "2":
                     menuVector();
+                    break;
+                case "3":
+                    menuMatrix();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -265,6 +269,89 @@ public class Main
                         System.out.println("No hay datos");
                     }
                     break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!resp.equals("0"));
+    }
+    
+    public static void menuMatrix()
+    {
+        String resp;
+        int rows, cols;
+        Matrix matrix = new Matrix();
+        Matrix matrix2 = new Matrix();
+        rows = 0;
+        cols = 0;
+        
+        do {
+            System.out.println("\n-------Menú Matrices------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Crear matriz");
+            System.out.println("2. Tamaño (orden)");
+            System.out.println("3. Mostrar");
+            System.out.println("4. Suma matrices");
+            System.out.println("5. Diagonal principal");
+            System.out.println("6. Diagonal secundaria");
+            System.out.println("7. Triángulo arriba");
+            System.out.print("Ingrese su opción: ");
+            resp = input.nextLine();
+
+            switch (resp) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Número filas: ");
+                    rows = input.nextInt();
+                    input.nextLine();
+                    System.out.print("Número columnas: ");
+                    cols = input.nextInt();
+                    input.nextLine();
+                    if (rows > 0 && rows <= 50 && cols > 0 && cols <= 50) {
+                        matrix.setM(rows);
+                        matrix.setN(cols);
+                        matrix.createMatrix();
+                        System.out.println("Matriz creada correctamente");
+                    } else {
+                        System.out.println("Tamaño no válido para la matriz");
+                    }
+                    break;
+                case "2":
+                    System.out.println("Tamaño matriz: " + matrix.getM() + " x " + matrix.getN());
+                    break;
+                case "3":
+                    matrix.showMatrix(matrix.getMat());
+                    break;
+                case "4":
+                    matrix2.setM(rows);
+                    matrix2.setN(cols);
+                    matrix2.createMatrix();
+                    matrix.sumMatrix(matrix.getMat(), matrix2.getMat());
+                    matrix.showMatrix(matrix.getMat());
+                    System.out.println();
+                    matrix2.showMatrix(matrix2.getMat());
+                    System.out.println();
+                    matrix.showMatrix(matrix.getMatSum());
+                    break;
+                case "5":
+                    if (matrix.getM() == matrix.getN() && matrix.getM() > 1) {
+                        matrix.mainDiagonal();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
+                case "6":
+                    if (matrix.getM() == matrix.getN() && matrix.getM() > 1) {
+                        matrix.secondaryDiagonal();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
+                case "7":
+                    if (matrix.getM() > 1 && matrix.getN() > 1) {
+                        matrix.upTriangle();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
                 default:
                     System.out.println("Opción no válida");
                     break;
