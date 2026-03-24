@@ -295,6 +295,8 @@ public class Main
             System.out.println("5. Diagonal principal");
             System.out.println("6. Diagonal secundaria");
             System.out.println("7. Triángulo arriba");
+            System.out.println("8. Triángulo izquierdo");
+            System.out.println("9. Triángulo derecho");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -340,18 +342,35 @@ public class Main
                     } else {
                         System.out.println("La matriz debe ser cuadrada");
                     }
+                    break;
                 case "6":
                     if (matrix.getM() == matrix.getN() && matrix.getM() > 1) {
                         matrix.secondaryDiagonal();
                     } else {
                         System.out.println("La matriz debe ser cuadrada");
                     }
+                    break;
                 case "7":
                     if (matrix.getM() > 1 && matrix.getN() > 1) {
                         matrix.upTriangle();
                     } else {
                         System.out.println("La matriz debe ser cuadrada");
                     }
+                    break;
+                case "8":
+                    if (matrix.getM() > 1 && matrix.getN() > 1) {
+                        matrix.leftTriangle();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
+                    break;
+                case "9":
+                    if (matrix.getM() > 1 && matrix.getN() > 1) {
+                        matrix.rightTriangle();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
+                    break;
                 default:
                     System.out.println("Opción no válida");
                     break;

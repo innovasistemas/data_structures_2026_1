@@ -109,4 +109,22 @@ public class Matrix
         System.out.println();
     }
 
+    public void rightTriangle()
+    { 
+        for (int c = n - 1; c >= n / 2 ; c--) {
+            for (int f = c; f >= n - c - 1; f--) {
+                System.out.println(mat[f][c]);
+            }
+        }
+    }
+
+    public void leftTriangle()
+    { 
+        for (int c = 0; c <= n / 2; c++) {
+            for (int f = c; f < n - c; f++) {
+                System.out.println(mat[f][c]);
+            }
+        }
+    }
+
 }
