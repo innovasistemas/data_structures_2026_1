@@ -127,4 +127,21 @@ public class Matrix
         }
     }
 
+    public void lowerTriangular()
+    {
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.println(mat[i][j]);
+            }
+        }
+    }
+    public void lowerTriangularSecondary()
+    {
+        for (int i = 1; i < n; i++) {
+            for (int j = n - i; j < n; j++) {
+                System.out.println(mat[i][j]);
+            }
+        }
+    }
+
 }

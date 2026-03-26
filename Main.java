@@ -328,6 +328,8 @@ public class Main
             System.out.println("7. Triángulo arriba");
             System.out.println("8. Triángulo izquierdo");
             System.out.println("9. Triángulo derecho");
+            System.out.println("10. Triangular inferior");
+            System.out.println("11. Triangular inferior secundaria");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -398,6 +400,20 @@ public class Main
                 case "9":
                     if (matrix.getM() > 1 && matrix.getN() > 1) {
                         matrix.rightTriangle();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
+                    break;
+                case "10":
+                    if (matrix.getM() > 1 && matrix.getN() > 1) {
+                        matrix.lowerTriangular();
+                    } else {
+                        System.out.println("La matriz debe ser cuadrada");
+                    }
+                    break;
+                case "11":
+                    if (matrix.getM() > 1 && matrix.getN() > 1) {
+                        matrix.lowerTriangularSecondary();
                     } else {
                         System.out.println("La matriz debe ser cuadrada");
                     }
