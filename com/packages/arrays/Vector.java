@@ -184,6 +184,43 @@ public class Vector
             vec[n - i - 1] = aux;
         }
     }
+
+    public int productPoint(int [] v1, int [] v2, int t)
+    {
+        int s = 0;
+        for (int i = 0; i < t; i++) {
+            s += v1[i] * v2[i];
+        }
+        return s;
+    }
+
+    public void deleteOcurrencies()
+    {
+        for (int i = 0; i < n - 1; i++) {
+            int j = i + 1;
+            while (j < n) {
+                if (vec[i] == vec[j]) {
+                    deleteVector(j);
+                } else {
+                    j++;
+                }
+            }
+        }
+    }
+
+    public boolean sortAsc()
+    {
+        int i = 0;
+        boolean sw = true; // Supuesto: vector ordenado
+        while (i < n - 1 && sw) {
+            if (vec[i] > vec[i + 1]) {
+                sw = false;
+            } else {
+                i++;
+            }
+        }
+        return sw;
+    }
        
     
 }

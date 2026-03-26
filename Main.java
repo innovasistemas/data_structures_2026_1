@@ -53,6 +53,7 @@ public class Main
             System.out.println("6. Palíndromo");
             System.out.println("7. Ejemplos cadenas");
             System.out.println("8. Contar carácter del usuario");
+            System.out.println("9. Convertir cadena a ASCII");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -88,6 +89,9 @@ public class Main
                     input.nextLine();
                     System.out.println("El carácter " + charUser + " se encuentra " + str.countChar(charUser));
                     break;
+                case "9":
+                    System.out.println("Cadena ASCII: " + str.stringASCII());
+                    break;
                 default:
                     System.out.println("Opción no válida");
                     break;
@@ -120,6 +124,9 @@ public class Main
             System.out.println("13. Varianza");
             System.out.println("14. Desviación");
             System.out.println("15. Intercambio");
+            System.out.println("16. Producto punto");
+            System.out.println("17. Eliminar ocurrencias");
+            System.out.println("18. Verificar orden ascendente");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -267,6 +274,30 @@ public class Main
                         System.out.println("Se intercambiaron los datos del vector");
                     } else {
                         System.out.println("No hay datos");
+                    }
+                    break;
+                case "16":
+                    int [] v1 = {2, 5 ,-6};
+                    int [] v2 = {1, 8 , 4};
+                    System.out.println("Producto punto: " + v.productPoint(v1, v2, 3));
+                    break;
+                case "17":
+                    if (v.getN() > 0) {
+                        v.deleteOcurrencies();
+                        v.showVector();
+                    } else {
+                        System.out.println("Vector vacío");
+                    }
+                    break;
+                case "18":
+                    if (v.getN() > 0) {
+                        if (v.sortAsc()) {
+                            System.out.println("Vector ordenado ascendentemente");
+                        } else {
+                            System.out.println("El vector no está ordenado ascendentemente");
+                        }
+                    } else {
+                        System.out.println("Vector vacío");
                     }
                     break;
                 default:

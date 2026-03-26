@@ -91,5 +91,14 @@ public class StringChar
         }
         return c;
     }
+
+    public String stringASCII()
+    {
+        String strNum = "";
+        for (int i = 0; i < text.length(); i++) {
+            strNum += (int)text.charAt(i);
+        }
+        return strNum;
+    }
     
 }
