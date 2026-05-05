@@ -90,4 +90,17 @@ public class LDL
         }
         n--;
     }
+
+    public void insertAfterLDL(NodeLDL ref, int datum)
+    {
+        NodeLDL mem = new NodeLDL();
+        mem.info = datum;
+        mem.left = ref;
+        mem.right = ref.right;
+        if (ref.right != null) {
+            ref.right.left = mem;
+        }
+        ref.right = mem;
+        n++;
+    }
 }
