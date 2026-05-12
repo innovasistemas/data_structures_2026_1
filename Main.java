@@ -1,8 +1,10 @@
 import com.packages.arrays.*;
 import com.packages.linked_list.*;
+import com.packages.queues.*;
+import com.packages.recursivity.*;
+import com.packages.stacks.*;
 import com.packages.strings.*;
 import java.util.Scanner;
-import com.packages.stacks.*;
 
 public class Main 
 {
@@ -21,6 +23,8 @@ public class Main
             System.out.println("6. Lista Simplemente Ligada Circular");
             System.out.println("7. Lista Doblemente Ligada");
             System.out.println("8. Pilas");
+            System.out.println("9. Colas");
+            System.out.println("10. Recursividad");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -51,6 +55,12 @@ public class Main
                     break;
                 case "8":
                     menuStacks();
+                    break;
+                case "9":
+                    menuQueues();
+                    break;
+                case "10":
+                    menuRecursivity();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -860,6 +870,98 @@ public class Main
                     } else {
                         System.out.println("No ha creado la Pila");
                     }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!resp.equals("0"));
+    }
+
+    public static void menuQueues()
+    {
+        int datum;
+        String resp;
+        Queue objQueue = new Queue();
+        do {
+            System.out.println("\n-------Menú Colas------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Encolar");
+            System.out.println("2. Tamaño");
+            System.out.println("3. Mostrar");
+            System.out.println("4. Desencolar");
+            System.out.print("Ingrese su opción: ");
+            resp = input.nextLine();
+            
+            switch (resp) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Dato a encolar: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    objQueue.addQueue(datum);
+                    System.out.println("Dato almacenado en la Cola");
+                    break;
+                case "2":
+                    System.out.println("Tamaño Cola: " + objQueue.getEnd());
+                    break;
+                case "3":
+                    if (objQueue.getEnd() > 0) {
+                        objQueue.displayQueue();
+                    } else {
+                        System.out.println("No ha creado la Cola");
+                    }
+                    break;
+                case "4":
+                    if (objQueue.getEnd() > 0) {
+                        System.out.println(objQueue.popQueue() + " se desencoló correctamente");
+                    } else {
+                        System.out.println("No ha creado la Cola");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!resp.equals("0"));
+    }
+
+    public static void menuRecursivity()
+    {
+        int datum;
+        String resp;
+        // Recursion rec = new Recursion();
+        do {
+            System.out.println("\n-------Menú Colas------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Factorial");
+            System.out.println("2. Imprimir primero números naturales");
+            System.out.println("3. Fibonacci");
+            System.out.println("4. Capital acumulado");
+            System.out.println("5. Mostrar vector");
+            System.out.println("6. Mostrar LSL");
+            System.out.print("Ingrese su opción: ");
+            resp = input.nextLine();
+            
+            switch (resp) {
+                case "0":
+                    break;
+                case "1":
+                    System.out.print("Ingrese n: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    // System.out.println(datum + "! = " + rec.factorial(datum));
+                    System.out.println(datum + "! = " + Recursion.factorial(datum));
+                    break;
+                case "2":
+                    
+                    break;
+                case "3":
+                    
+                    break;
+                case "4":
+                    
                     break;
                 default:
                     System.out.println("Opción no válida");
