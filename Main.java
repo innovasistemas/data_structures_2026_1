@@ -574,6 +574,7 @@ public class Main
             System.out.println("7. Modificar");
             System.out.println("8. Eliminar");
             System.out.println("9. Insertar (antes de referencia)");
+            System.out.println("10. Mostrar LSL recursiva");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
             
@@ -667,6 +668,9 @@ public class Main
                     } else {
                         System.out.println("No ha creado la LSL");
                     }
+                    break;
+                case "10":
+                    list.displayLSLRecursivity(list.head);
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -936,8 +940,11 @@ public class Main
             System.out.println("\n-------Menú Colas------");
             System.out.println("0. Regresar");
             System.out.println("1. Factorial");
-            System.out.println("2. Imprimir primero números naturales");
-            System.out.println("3. Fibonacci");
+            System.out.println("2. Imprimir primeros números naturales Desc");
+            System.out.println("3. Imprimir primeros números naturales Asc");
+            System.out.println("4. Fibonacci Iterativo");
+            System.out.println("5. Fibonacci Recursivo");
+            System.out.println("6. Suma cuadrados");
             System.out.println("4. Capital acumulado");
             System.out.println("5. Mostrar vector");
             System.out.println("6. Mostrar LSL");
@@ -955,13 +962,36 @@ public class Main
                     System.out.println(datum + "! = " + Recursion.factorial(datum));
                     break;
                 case "2":
-                    
+                    System.out.print("Ingrese n: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    Recursion.displayNaturalNumbersDesc(datum);
                     break;
                 case "3":
-                    
+                    System.out.print("Ingrese n: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    Recursion.displayNaturalNumbersAsc(datum, 1);
                     break;
                 case "4":
-                    
+                    System.out.print("Ingrese n: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    Recursion.FibonacciIterative(datum);
+                    break;
+                case "5":
+                    System.out.print("Ingrese n: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    for (int j = 1; j <= datum; j++) {
+                        System.out.println(Recursion.FibonacciRecursive(j));
+                    }
+                    break;
+                case "6":
+                    System.out.print("Ingrese n: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    System.out.println("Suma cuadrados: " + Recursion.sumSquare(datum));
                     break;
                 default:
                     System.out.println("Opción no válida");
