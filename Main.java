@@ -4,6 +4,8 @@ import com.packages.queues.*;
 import com.packages.recursivity.*;
 import com.packages.stacks.*;
 import com.packages.strings.*;
+import com.packages.trees.*;
+
 import java.util.Scanner;
 
 public class Main 
@@ -25,6 +27,7 @@ public class Main
             System.out.println("8. Pilas");
             System.out.println("9. Colas");
             System.out.println("10. Recursividad");
+            System.out.println("11. Árboles binarios");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
 
@@ -61,6 +64,9 @@ public class Main
                     break;
                 case "10":
                     menuRecursivity();
+                    break;
+                case "11":
+                    menuTrees();
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -992,6 +998,60 @@ public class Main
                     datum = input.nextInt();
                     input.nextLine();
                     System.out.println("Suma cuadrados: " + Recursion.sumSquare(datum));
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+        } while (!resp.equals("0"));
+    }
+    
+    public static void menuTrees()
+    {
+        int datum;
+        String resp;
+        Trees tree = new Trees();
+        // NodeTree mem;
+        do {
+            System.out.println("\n-------Menú Árboles------");
+            System.out.println("0. Regresar");
+            System.out.println("1. Crear");
+            System.out.println("2. Recorrido preorden");
+            System.out.println("3. Recorrido inorden");
+            System.out.println("4. Recorrido postorden");
+            System.out.print("Ingrese su opción: ");
+            resp = input.nextLine();
+            
+            switch (resp) {
+                case "0":
+                    break;
+                case "1":
+                    // mem = new NodeTree();
+                    // tree.setRoot(mem);
+                    tree.setRoot(new NodeTree());
+                    tree.addNode(tree.getRoot());
+                    System.out.println("¡Árbol binario creado!");
+                    break;
+                case "2":
+                    if (tree.getRoot() != null) {
+                        tree.preorder(tree.getRoot());
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "3":
+                    if (tree.getRoot() != null) {
+                        tree.inorder(tree.getRoot());
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "4":
+                    if (tree.getRoot() != null) {
+                        tree.postorder(tree.getRoot());
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
                     break;
                 default:
                     System.out.println("Opción no válida");
