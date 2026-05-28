@@ -1019,6 +1019,11 @@ public class Main
             System.out.println("2. Recorrido preorden");
             System.out.println("3. Recorrido inorden");
             System.out.println("4. Recorrido postorden");
+            System.out.println("5. Contar nodos");
+            System.out.println("6. Mayor nodo");
+            System.out.println("7. Contar hojas");
+            System.out.println("8. Insertar en ABB");
+            System.out.println("9. Buscar en ABB");
             System.out.print("Ingrese su opción: ");
             resp = input.nextLine();
             
@@ -1052,6 +1057,44 @@ public class Main
                     } else {
                         System.out.println("Árbol vacío");
                     }
+                    break;
+                case "5":
+                    if (tree.getRoot() != null) {
+                        System.out.println("Total nodos: " + 
+                            tree.countNodes(tree.getRoot())
+                        );
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "6":
+                    if (tree.getRoot() != null) {
+                        System.out.println("Mayor nodo: " + 
+                            tree.maxNode(tree.getRoot())
+                        );
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                case "7":
+                    if (tree.getRoot() != null) {
+                        System.out.println("Total hojas (nodos terminales): " + 
+                            tree.countLeaves(tree.getRoot())
+                        );
+                    } else {
+                        System.out.println("Árbol vacío");
+                    }
+                    break;
+                case "8":
+                    System.out.print("Ingrese un dato para el ABB: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    tree.insertABB(tree.getRoot(), datum);
+                    break;
+                case "9":
+                    System.out.print("Ingrese un dato a buscar en el ABB: ");
+                    datum = input.nextInt();
+                    input.nextLine();
+                    tree.searchABB(tree.getRoot(), datum);
                     break;
                 default:
                     System.out.println("Opción no válida");
